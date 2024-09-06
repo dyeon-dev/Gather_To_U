@@ -1,7 +1,11 @@
+import Button from '@mui/material/Button';
+
 function App() {
   return (
-    <div>Hi Gather to Ureka !</div>
-  );
+    <Button variant="contained">
+      Hello World
+    </Button>  
+    );
 }
 
 export default App;
