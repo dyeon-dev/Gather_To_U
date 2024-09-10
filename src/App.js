@@ -6,8 +6,12 @@ import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import CalendarPage from "./components/views/CalendarPage/CalendarPage";
 import MyPage from "./components/views/MyPage/MyPage";
 
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './components/common/theme';
+
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <Router>
     <Navbar />
     <Routes>
@@ -18,6 +22,7 @@ function App() {
       <Route path="/mypage" element={<MyPage />} />
     </Routes>
   </Router>
+  </ThemeProvider>
     );
 }
 

@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Tab from "../../common/Tabs/Tab";
+import { Container } from "@mui/material";
 
 function MainPage() {
   return (
-    <div>MainPage</div>
-  )
+    <div>
+      <Container maxWidth="lg" sx={{ mt: 3 }}>
+        <Tab />
+      </Container>
+    </div>
+  );
 }
 
-export default MainPage
+export default MainPage;

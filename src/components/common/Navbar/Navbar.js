@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Navbar.module.css";
-import Logo from "../../../common/Logo";
+import Logo from "../Logo";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -43,7 +43,7 @@ export default function Navbar() {
         boxShadow: "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           {/* 로고 */}
           <div className={styles.desktopLogo}>
@@ -96,7 +96,6 @@ export default function Navbar() {
                   className={styles.pageButton}
                   sx={{
                     my: 2,
-                    color: "#4F2F92",
                     fontSize: "1.3rem",
                     display: "block",
                   }}
