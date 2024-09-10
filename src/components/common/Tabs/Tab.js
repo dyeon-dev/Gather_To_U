@@ -1,8 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
+import { Button, Tabs, Tab, Box } from "@mui/material";
 import GatherToggleButton from "../ToggleButton/GatherToggleButton";
 
 function CustomTabPanel(props) {
@@ -54,7 +52,19 @@ export default function BasicTabs() {
           <Tab label="모집 완료" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <GatherToggleButton />
+      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+        <GatherToggleButton />
+        <Button
+          size="small"
+          sx={{
+            color: "white",
+            backgroundColor: "#38406B",
+            borderRadius: 20,
+          }}
+        >
+          글 쓰기
+        </Button>
+      </Box>
       <CustomTabPanel value={value} index={0}></CustomTabPanel>
       <CustomTabPanel value={value} index={1}></CustomTabPanel>
       <CustomTabPanel value={value} index={2}></CustomTabPanel>

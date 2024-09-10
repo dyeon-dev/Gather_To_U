@@ -11,7 +11,6 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     marginRight: 10,
     border: 0,
     borderRadius: 20,
-    height: 35,
   },
 }));
 
@@ -25,27 +24,23 @@ function GatherToggleButton() {
   };
 
   return (
-    <div>
-      <Container maxWidth="lg" sx={{ mt: 3 }}>
-        <StyledToggleButtonGroup
-          size="small"
-          value={gatheringType}
-          onChange={handleGatheringType}
-          aria-label="gathering type"
-          color="secondary"
-        >
-          <ToggleButton value="mogako" aria-label="mogako">
-            모각코
-          </ToggleButton>
-          <ToggleButton value="study" aria-label="study">
-            스터디
-          </ToggleButton>
-          <ToggleButton value="contest" aria-label="contest">
-            공모 및 대회
-          </ToggleButton>
-        </StyledToggleButtonGroup>
-      </Container>
-    </div>
+    <StyledToggleButtonGroup
+      size="small"
+      value={gatheringType}
+      onChange={handleGatheringType}
+      aria-label="gathering type"
+      color="secondary"
+    >
+      <ToggleButton value="mogako" aria-label="mogako">
+        모각코
+      </ToggleButton>
+      <ToggleButton value="study" aria-label="study">
+        스터디
+      </ToggleButton>
+      <ToggleButton value="contest" aria-label="contest">
+        공모 및 대회
+      </ToggleButton>
+    </StyledToggleButtonGroup>
   );
 }
 
