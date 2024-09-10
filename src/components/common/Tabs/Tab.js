@@ -55,7 +55,6 @@ export default function BasicTabs() {
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
         <GatherToggleButton />
         <Button
-          size="small"
           sx={{
             color: "white",
             backgroundColor: "#38406B",
