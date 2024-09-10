@@ -1,6 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import Logo from "../Logo";
+import Logo from "../../constants/Logo";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,8 +13,10 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["모집글 ", "캘린더"];
+const pages = ["모집글", "캘린더"];
 export default function Navbar() {
+  const navigate = useNavigate();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -32,6 +35,21 @@ export default function Navbar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
+  const handlePageClick = (page) => {
+    if (page === "모집글") {
+      navigate("/");
+    } else if (page === "캘린더") {
+      navigate("/calendar");
+    }
+    handleCloseNavMenu();
+  };
+
+
   return (
     <AppBar
       position="static"
@@ -46,10 +64,10 @@ export default function Navbar() {
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           {/* 로고 */}
-          <div className={styles.desktopLogo}>
+          <div className={styles.desktopLogo} onClick={handleLogoClick} >
             <Logo />
           </div>
-          <div className={styles.mobileLogo}>
+          <div className={styles.mobileLogo} onClick={handleLogoClick} >
             <Logo />
           </div>
           {/* mobile */}
@@ -80,7 +98,7 @@ export default function Navbar() {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handlePageClick(page)}>
                   <Typography sx={{ textAlign: "center" }}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -92,7 +110,7 @@ export default function Navbar() {
             {pages.map((page, index) => (
               <React.Fragment key={page}>
                 <Button
-                  onClick={handleCloseNavMenu}
+                  onClick={() => handlePageClick(page)}
                   className={styles.pageButton}
                   sx={{
                     my: 2,
@@ -106,6 +124,8 @@ export default function Navbar() {
               </React.Fragment>
             ))}
           </Box>
+
+          {/* profile */}
           <Box sx={{ flexGrow: 0 }}>
             <div>
               <svg
