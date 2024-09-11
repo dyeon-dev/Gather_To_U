@@ -4,7 +4,7 @@ import { Button, Tabs, Tab, Box } from "@mui/material";
 import GatherToggleButton from "../ToggleButton/GatherToggleButton";
 
 function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
     <div
@@ -16,28 +16,28 @@ function CustomTabPanel(props) {
     >
       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
-  );
+  )
 }
 
 CustomTabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
-};
+}
 
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
+    'aria-controls': `simple-tabpanel-${index}`,
+  }
 }
 
 export default function BasicTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0)
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -68,5 +68,5 @@ export default function BasicTabs() {
       <CustomTabPanel value={value} index={1}></CustomTabPanel>
       <CustomTabPanel value={value} index={2}></CustomTabPanel>
     </Box>
-  );
+  )
 }
