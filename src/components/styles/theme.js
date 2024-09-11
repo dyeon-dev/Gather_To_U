@@ -1,5 +1,5 @@
-import { createTheme } from '@mui/material/styles';
-import { secondary_color } from '../constants/colors';
+import { createTheme } from '@mui/material/styles'
+import { secondary_color } from '../constants/colors'
 
 const theme = createTheme({
   palette: {
@@ -7,6 +7,6 @@ const theme = createTheme({
       main: secondary_color,
     },
   },
-});
+})
 
-export default theme;
+export default theme

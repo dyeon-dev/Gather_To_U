@@ -1,6 +1,6 @@
-import React from "react";
-import Tab from "../../common/Tabs/Tab";
-import { Container } from "@mui/material";
+import React from 'react'
+import Tab from '../../common/Tabs/Tab'
+import { Container } from '@mui/material'
 
 function MainPage() {
   return (
@@ -9,7 +9,7 @@ function MainPage() {
         <Tab />
       </Container>
     </div>
-  );
+  )
 }
 
-export default MainPage;
+export default MainPage

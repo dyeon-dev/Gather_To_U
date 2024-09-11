@@ -1,77 +1,76 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./Navbar.module.css";
-import Logo from "../../constants/Logo";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import styles from './Navbar.module.css'
+import Logo from '../../constants/Logo'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import Menu from '@mui/material/Menu'
+import MenuIcon from '@mui/icons-material/Menu'
+import Container from '@mui/material/Container'
+import Button from '@mui/material/Button'
+import MenuItem from '@mui/material/MenuItem'
 
-const pages = ["모집글", "캘린더"];
+const pages = ['모집글', '캘린더']
 export default function Navbar() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null)
+  const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  const handleOpenNavMenu = event => {
+    setAnchorElNav(event.currentTarget)
+  }
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handleMenu = event => {
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   const handleLogoClick = () => {
-    navigate("/");
-  };
+    navigate('/')
+  }
 
-  const handlePageClick = (page) => {
-    if (page === "모집글") {
-      navigate("/");
-    } else if (page === "캘린더") {
-      navigate("/calendar");
+  const handlePageClick = page => {
+    if (page === '모집글') {
+      navigate('/')
+    } else if (page === '캘린더') {
+      navigate('/calendar')
     }
-    handleCloseNavMenu();
-  };
-
+    handleCloseNavMenu()
+  }
 
   return (
     <AppBar
       position="static"
       sx={{
-        height: "89px",
+        height: '89px',
         flexShrink: 0,
-        marginTop: "-7px",
-        background: "rgba(234, 221, 255, 0.75)",
-        boxShadow: "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
+        marginTop: '-7px',
+        background: 'rgba(234, 221, 255, 0.75)',
+        boxShadow: '0px 2px 10px 0px rgba(0, 0, 0, 0.25)',
       }}
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           {/* 로고 */}
-          <div className={styles.desktopLogo} onClick={handleLogoClick} >
+          <div className={styles.desktopLogo} onClick={handleLogoClick}>
             <Logo />
           </div>
-          <div className={styles.mobileLogo} onClick={handleLogoClick} >
+          <div className={styles.mobileLogo} onClick={handleLogoClick}>
             <Logo />
           </div>
           {/* mobile */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -85,28 +84,28 @@ export default function Navbar() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+                vertical: 'bottom',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+                vertical: 'top',
+                horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
+              {pages.map(page => (
                 <MenuItem key={page} onClick={() => handlePageClick(page)}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
           {/* desktop */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page, index) => (
               <React.Fragment key={page}>
                 <Button
@@ -114,8 +113,8 @@ export default function Navbar() {
                   className={styles.pageButton}
                   sx={{
                     my: 2,
-                    fontSize: "1.3rem",
-                    display: "block",
+                    fontSize: '1.3rem',
+                    display: 'block',
                   }}
                 >
                   {page}
@@ -158,13 +157,13 @@ export default function Navbar() {
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
@@ -177,5 +176,5 @@ export default function Navbar() {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }
