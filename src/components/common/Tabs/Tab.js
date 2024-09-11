@@ -1,7 +1,16 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import { Button, Tabs, Tab, Box } from "@mui/material";
-import GatherToggleButton from "../ToggleButton/GatherToggleButton";
+import * as React from 'react'
+import PropTypes from 'prop-types'
+import {
+  Button,
+  Tabs,
+  Tab,
+  Box,
+  MenuItem,
+  FormControl,
+  Select,
+  Stack,
+} from '@mui/material'
+import GatherToggleButton from '../ToggleButton/GatherToggleButton'
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props
@@ -34,14 +43,19 @@ function a11yProps(index) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0)
+  const [sorting, setSorting] = React.useState('최신순')
+
+  const handleSortingChange = e => {
+    setSorting(e.target.value)
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -52,18 +66,27 @@ export default function BasicTabs() {
           <Tab label="모집 완료" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
         <GatherToggleButton />
         <Button
           sx={{
-            color: "white",
-            backgroundColor: "#38406B",
+            color: 'white',
+            backgroundColor: '#38406B',
             borderRadius: 20,
           }}
         >
           글 쓰기
         </Button>
       </Box>
+      <Stack direction="row" justifyContent="end" sx={{ mt: 2 }}>
+        {' '}
+        <FormControl size="small">
+          <Select id="sorting" value={sorting} onChange={handleChange}>
+            <MenuItem value="최신순">최신순</MenuItem>
+            <MenuItem value="등록순">등록순</MenuItem>
+          </Select>
+        </FormControl>
+      </Stack>
       <CustomTabPanel value={value} index={0}></CustomTabPanel>
       <CustomTabPanel value={value} index={1}></CustomTabPanel>
       <CustomTabPanel value={value} index={2}></CustomTabPanel>

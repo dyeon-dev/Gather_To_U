@@ -1,10 +1,9 @@
-import * as React from "react";
-import { Container } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import ToggleButton from "@mui/material/ToggleButton";
+import * as React from 'react'
+import { styled } from '@mui/material/styles'
+import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup, {
   toggleButtonGroupClasses,
-} from "@mui/material/ToggleButtonGroup";
+} from '@mui/material/ToggleButtonGroup'
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   [`& .${toggleButtonGroupClasses.grouped}`]: {
@@ -12,16 +11,16 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     border: 0,
     borderRadius: 20,
   },
-}));
+}))
 
 function GatherToggleButton() {
-  const [gatheringType, setGatheringType] = React.useState(() => ["mogako"]);
+  const [gatheringType, setGatheringType] = React.useState(() => ['mogako'])
 
   const handleGatheringType = (event, newGatheringSelection) => {
     if (newGatheringSelection.length) {
-      setGatheringType(newGatheringSelection);
+      setGatheringType(newGatheringSelection)
     }
-  };
+  }
 
   return (
     <StyledToggleButtonGroup
@@ -41,7 +40,7 @@ function GatherToggleButton() {
         공모 및 대회
       </ToggleButton>
     </StyledToggleButtonGroup>
-  );
+  )
 }
 
-export default GatherToggleButton;
+export default GatherToggleButton
