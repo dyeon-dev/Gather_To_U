@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/common/Navbar/Navbar";
-import MainPage from "./components/views/MainPage/MainPage";
-import LoginPage from "./components/views/LoginPage/LoginPage";
-import RegisterPage from "./components/views/RegisterPage/RegisterPage";
-import CalendarPage from "./components/views/CalendarPage/CalendarPage";
-import MyPage from "./components/views/MyPage/MyPage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/common/Navbar/Navbar'
+import MainPage from './components/views/MainPage/MainPage'
+import LoginPage from './components/views/LoginPage/LoginPage'
+import RegisterPage from './components/views/RegisterPage/RegisterPage'
+import CalendarPage from './components/views/CalendarPage/CalendarPage'
+import MyPage from './components/views/MyPage/MyPage'
 
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./components/styles/theme";
+import { ThemeProvider } from '@mui/material/styles'
+import theme from './components/styles/theme'
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         </Routes>
       </Router>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App
