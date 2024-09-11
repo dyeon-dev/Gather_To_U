@@ -7,7 +7,7 @@ import CalendarPage from './components/views/CalendarPage/CalendarPage'
 import MyPage from './components/views/MyPage/MyPage'
 
 import { ThemeProvider } from '@mui/material/styles'
-import theme from './components/common/theme'
+import theme from './components/styles/theme'
 
 function App() {
   return (
