@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-
 // MongoDB
+const config = require("./config/key.js");
 const mongoose = require("mongoose");
 mongoose // 몽구스를 이용해서 mongoDB에 연결
   .connect(config.mongoURI, {
