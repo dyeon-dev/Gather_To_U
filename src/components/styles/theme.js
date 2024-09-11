@@ -4,8 +4,11 @@ import { secondary_color } from '../constants/colors'
 const theme = createTheme({
   palette: {
     primary: {
-      main: secondary_color,
+      main: primary_color,
     },
+    secondary: {
+      main: secondary_color,
+    }
   },
 })
 

@@ -1,8 +1,7 @@
-import * as React from 'react'
-import PropTypes from 'prop-types'
-import Tabs from '@mui/material/Tabs'
-import Tab from '@mui/material/Tab'
-import Box from '@mui/material/Box'
+import * as React from "react";
+import PropTypes from "prop-types";
+import { Button, Tabs, Tab, Box } from "@mui/material";
+import GatherToggleButton from "../ToggleButton/GatherToggleButton";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props
@@ -41,8 +40,8 @@ export default function BasicTabs() {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    <Box sx={{ width: "100%" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -53,15 +52,21 @@ export default function BasicTabs() {
           <Tab label="모집 완료" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        전체
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        모집중
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        모집 완료
-      </CustomTabPanel>
+      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+        <GatherToggleButton />
+        <Button
+          sx={{
+            color: "white",
+            backgroundColor: "#38406B",
+            borderRadius: 20,
+          }}
+        >
+          글 쓰기
+        </Button>
+      </Box>
+      <CustomTabPanel value={value} index={0}></CustomTabPanel>
+      <CustomTabPanel value={value} index={1}></CustomTabPanel>
+      <CustomTabPanel value={value} index={2}></CustomTabPanel>
     </Box>
   )
 }
