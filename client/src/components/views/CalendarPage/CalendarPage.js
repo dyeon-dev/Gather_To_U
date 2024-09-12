@@ -11,6 +11,8 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 
+import Auth from "../../../hoc/auth"
+
 function CalendarPage() {
   const handleDateClick = arg => {
     alert(arg.dateStr)
@@ -49,4 +51,4 @@ function CalendarPage() {
   )
 }
 
-export default CalendarPage
+export default Auth(CalendarPage, true);

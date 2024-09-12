@@ -16,7 +16,9 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../_actions/user_action'
 
-export default function LoginPage() {
+import Auth from "../../../hoc/auth"
+
+function LoginPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -114,3 +116,4 @@ export default function LoginPage() {
     </ThemeProvider>
   )
 }
+export default Auth(LoginPage, false);

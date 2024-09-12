@@ -15,8 +15,8 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/mypage" element={<MyPage />} />

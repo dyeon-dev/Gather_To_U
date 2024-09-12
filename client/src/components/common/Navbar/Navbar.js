@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
+import axios from "axios";
 
 const pages = ['모집글', '캘린더']
 export default function Navbar() {
@@ -38,6 +39,19 @@ export default function Navbar() {
 
   const handleLogoClick = () => {
     navigate('/')
+  }
+
+  const logoutClick = () => {
+    setAnchorEl(null)
+    axios.get("/api/users/logout").then((res) => {
+      if (res.data.success) {
+        navigate("/login");
+        window.location.reload();
+      } else {
+        console.log(res.data)
+        alert("로그아웃 실패");
+      }
+    });
   }
 
   const handlePageClick = page => {
@@ -127,7 +141,7 @@ export default function Navbar() {
           {/* profile */}
           <Box sx={{ flexGrow: 0 }}>
             <div>
-              
+
               <svg
                 onClick={handleMenu}
                 xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +184,7 @@ export default function Navbar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>내가 작성한 글</MenuItem>
-                <MenuItem onClick={handleClose}>로그아웃</MenuItem>
+                <MenuItem onClick={logoutClick}>로그아웃</MenuItem>
               </Menu>
             </div>
           </Box>
