@@ -22,10 +22,11 @@ mongoose // 몽구스를 이용해서 mongoDB에 연결
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
+  app.use('/api/users', require('./routes/users'));
+  app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+  
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
