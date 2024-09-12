@@ -85,7 +85,7 @@ export default function BasicTabs() {
             id="sorting"
             value={sorting}
             onChange={handleChange}
-            sx={{ borderRadius: 3 }}
+            sx={{ borderRadius: 3, fontSize: 15 }}
           >
             <MenuItem value="최신순">최신순</MenuItem>
             <MenuItem value="등록순">등록순</MenuItem>
