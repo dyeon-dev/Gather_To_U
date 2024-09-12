@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -15,22 +15,51 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 
-export default function RegisterPage() {
-  const [generation, setGeneration] = React.useState('')
-  const [group, setGroup] = React.useState('')
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { registerUser } from '../../_actions/user_action'
 
-  const handleGenerationChange = event => {
-    setGeneration(event.target.value)
+export default function RegisterPage() {
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [generation, setGeneration] = useState('')
+  const [group, setGroup] = useState('')
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const onHandleChange = e => {
+    const { name, value } = e.target
+    if (name === 'email') setEmail(value)
+    else if (name === 'name') setName(value)
+    else if (name === 'password') setPassword(value)
+    else if (name === 'confirmPassword') setConfirmPassword(value)
+    else if (name === 'generation') setGeneration(value)
+    else if (name === 'group') setGroup(value)
   }
-  const handleGroupChange = event => {
-    setGroup(event.target.value)
-  }
+
   const handleSubmit = event => {
     event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    if (password !== confirmPassword) {
+      return alert('비밀번호와 비밀번호 확인이 같아야 합니다.')
+    }
+
+    const body = {
+      name: name,
+      email: email,
+      password: password,
+      generation: generation,
+      group: group,
+    }
+
+    dispatch(registerUser(body)).then(res => {
+      if (res.payload.success) {
+        navigate('/login')
+      } else {
+        alert('회원가입에 실패하셨습니다.')
+      }
     })
   }
 
@@ -61,11 +90,13 @@ export default function RegisterPage() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  value={name}
+                  onChange={onHandleChange}
+                  name="name"
+                  type="text"
                   autoComplete="given-name"
-                  name="Name"
                   required
                   fullWidth
-                  id="Name"
                   label="이름"
                   autoFocus
                 />
@@ -73,9 +104,11 @@ export default function RegisterPage() {
 
               <Grid item xs={12}>
                 <TextField
+                  value={email}
+                  onChange={onHandleChange}
+                  type="email"
                   required
                   fullWidth
-                  id="email"
                   label="이메일"
                   name="email"
                   autoComplete="email"
@@ -83,50 +116,54 @@ export default function RegisterPage() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  value={password}
+                  onChange={onHandleChange}
                   required
                   fullWidth
                   name="password"
                   label="비밀번호"
                   type="password"
-                  id="password"
                   autoComplete="new-password"
                 />
                 <TextField
+                  value={confirmPassword}
+                  name="confirmPassword"
+                  onChange={onHandleChange}
                   margin="normal"
                   required
                   fullWidth
-                  name="passwordConfirm"
                   label="비밀번호 확인"
                   type="password"
-                  id="passwordConfirm"
                   autoComplete="current-password"
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <FormControl sx={{ m: 1, minWidth: 180 }} size="small">
-                  <InputLabel id="demo-select-small-label">유레카 기수</InputLabel>
+                  <InputLabel id="demo-select-small-label">
+                    유레카 기수
+                  </InputLabel>
                   <Select
                     labelId="demo-select-small-label"
-                    id="demo-select-small"
+                    name="generation"
                     value={generation}
                     label="유레카 기수"
-                    onChange={handleGenerationChange}
+                    onChange={onHandleChange}
                   >
                     <MenuItem value={10}>1기</MenuItem>
                     <MenuItem value={20}>2기</MenuItem>
                     <MenuItem value={30}>3기</MenuItem>
                   </Select>
                 </FormControl>
-                </Grid>
-                <Grid item xs={12} sm={6}>
+              </Grid>
+              <Grid item xs={12} sm={6}>
                 <FormControl sx={{ m: 1, minWidth: 180 }} size="small">
                   <InputLabel id="demo-select-small-label">클래스</InputLabel>
                   <Select
                     labelId="demo-select-small-label"
-                    id="demo-select-small"
+                    name="group"
                     value={group}
                     label="클래스"
-                    onChange={handleGroupChange}
+                    onChange={onHandleChange}
                   >
                     <MenuItem value={10}>프론트 대면</MenuItem>
                     <MenuItem value={20}>프론트 비대면</MenuItem>
@@ -135,7 +172,6 @@ export default function RegisterPage() {
                   </Select>
                 </FormControl>
               </Grid>
-
             </Grid>
             <Button
               type="submit"
