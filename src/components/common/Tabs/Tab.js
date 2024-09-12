@@ -72,16 +72,21 @@ export default function BasicTabs() {
           sx={{
             color: 'white',
             backgroundColor: '#38406B',
-            borderRadius: 20,
+            borderRadius: 3,
           }}
         >
           글 쓰기
         </Button>
       </Box>
-      <Stack direction="row" justifyContent="end" sx={{ mt: 2 }}>
+      <Stack direction="row" justifyContent="end" sx={{ mt: 1 }}>
         {' '}
         <FormControl size="small">
-          <Select id="sorting" value={sorting} onChange={handleChange}>
+          <Select
+            id="sorting"
+            value={sorting}
+            onChange={handleChange}
+            sx={{ borderRadius: 3 }}
+          >
             <MenuItem value="최신순">최신순</MenuItem>
             <MenuItem value="등록순">등록순</MenuItem>
           </Select>
