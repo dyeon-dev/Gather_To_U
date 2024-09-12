@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
-import Logo from '../../constants/Logo'
+import DesktopLogo from '../../constants/DesktopLogo'
+import MobileLogo from '../../constants/MobileLogo'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -86,10 +87,10 @@ export default function Navbar() {
         <Toolbar disableGutters>
           {/* 로고 */}
           <div className={styles.desktopLogo} onClick={handleLogoClick}>
-            <Logo />
+            <DesktopLogo />
           </div>
           <div className={styles.mobileLogo} onClick={handleLogoClick}>
-            <Logo />
+            <MobileLogo />
           </div>
 
           {isAuth ? (
