@@ -1,6 +1,7 @@
 import React from 'react'
 import Tab from '../../common/Tabs/Tab'
 import { Container } from '@mui/material'
+import Auth from "../../../hoc/auth"
 
 function MainPage() {
   return (
@@ -12,4 +13,4 @@ function MainPage() {
   )
 }
 
-export default MainPage
+export default Auth(MainPage, true);
