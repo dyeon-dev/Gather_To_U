@@ -1,5 +1,6 @@
 import React from 'react'
 import Tab from '../../common/Tabs/Tab'
+import Post from './Post'
 import { Container } from '@mui/material'
 
 function MainPage() {
@@ -7,6 +8,8 @@ function MainPage() {
     <div>
       <Container maxWidth="lg" sx={{ mt: 3 }}>
         <Tab />
+        <Post postType="mogako" pastDeadline={false} />
+        <Post postType="etc" pastDeadline={true} />
       </Container>
     </div>
   )
