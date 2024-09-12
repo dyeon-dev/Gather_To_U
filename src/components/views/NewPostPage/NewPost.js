@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Select, MenuItem, InputLabel } from '@mui/material';
+import { TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Select, MenuItem, InputLabel, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 export default function RegisterPage() {
@@ -25,7 +25,7 @@ export default function RegisterPage() {
     };
 
     console.log('등록 정보:', registrationData);
-    navigate('/mainpage');
+    navigate('/'); // 등록 버튼 누르면 메인 페이지로
   };
 
   return (
@@ -55,29 +55,33 @@ export default function RegisterPage() {
           sx={{ mb: 3 }}
         />
 
-        <TextField
-          label="모집 마감일"
-          type="date"
-          fullWidth
-          InputLabelProps={{
-            shrink: true,
-          }}
-          value={deadline}
-          onChange={(e) => setDeadline(e.target.value)}
-          required
-          sx={{ mb: 3 }}
-        />
+        <Grid container spacing={2} sx={{ mb: 3 }}>
+          <Grid item xs={4}>
+            <TextField
+              label="모집 마감일"
+              type="date"
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+              value={deadline}
+              onChange={(e) => setDeadline(e.target.value)}
+              required
+            />
+          </Grid>
 
-        <TextField
-          label="모집 인원 수"
-          type="number"
-          fullWidth
-          inputProps={{ min: 1 }}
-          value={maxParticipants}
-          onChange={(e) => setMaxParticipants(e.target.value)}
-          required
-          sx={{ mb: 3 }}
-        />
+          <Grid item xs={6}>
+            <TextField
+              label="모집 인원 수"
+              type="number"
+              fullWidth
+              inputProps={{ min: 1 }}
+              value={maxParticipants}
+              onChange={(e) => setMaxParticipants(e.target.value)}
+              required
+            />
+          </Grid>
+        </Grid>
 
         <FormControl component="fieldset" sx={{ mb: 3 }}>
           <FormLabel component="legend">모임 목적</FormLabel>
@@ -103,15 +107,26 @@ export default function RegisterPage() {
             <MenuItem value="온라인">온라인</MenuItem>
             <MenuItem value="오프라인">오프라인</MenuItem>
             <MenuItem value="온/오프 병행">온/오프 병행</MenuItem>
+            <MenuItem value="미정">미정</MenuItem>
           </Select>
         </FormControl>
 
         <Button
           type="submit"
           variant="contained"
-          color="primary"
-          fullWidth
-          sx={{ padding: '10px', fontSize: '16px' }}
+          
+          fullWidth={false}
+          sx={{
+            padding: '8px 20px', 
+            fontSize: '14px',     
+            backgroundColor: '#E80080', 
+            color: 'white',       
+            display: 'block',   
+            margin: '20px auto',  
+            '&:hover': {        
+            backgroundColor: '#E80080',
+            }
+          }}
         >
           등록
         </Button>

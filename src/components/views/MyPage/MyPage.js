@@ -8,7 +8,6 @@ function MyPage() {
     setActiveButton(buttonIndex);
   };
 
-  
   const buttonStyles = (isActive) => ({
     backgroundColor: isActive ? '#E80080' : '#d3d3d3',
     borderRadius: '50px', 
@@ -20,9 +19,9 @@ function MyPage() {
   });
 
   const posts = [
-    { title: '한번만 모여주세요 제발', content: '강남역에서 모각코 해볼 예정입니다.', extraInfo: '모임 장소: 강남역' },
-    { title: '스터디 모집', content: 'CS 면접 대비 스터디 모집합니다.' , extraInfo: '온라인'},
-    { title: '공모전 모집', content: '해커톤 같이 나갈 사람' , extraInfo: '' },
+    { title: '한번만 모여주세요 제발', content: '강남역에서 모각코 해볼 예정입니다.', extraInfo: '모임 장소: 강남역', date: '2024-09-20' },
+    { title: '스터디 모집', content: 'CS 면접 대비 스터디 모집합니다.', extraInfo: '온라인', date: '2024-10-01' },
+    { title: '공모전 모집', content: '해커톤 같이 나갈 사람', extraInfo: '', date: '2024-09-25' },
   ];
 
   return (
@@ -56,6 +55,9 @@ function MyPage() {
                   {post.extraInfo}
                 </Typography>
               )}
+              <Typography variant="body2" color="text.secondary" sx={{ marginTop: '10px' }}>
+                날짜: {post.date}
+              </Typography>
             </CardContent>
           </Card>
         ))}
