@@ -1,3 +1,23 @@
+- feat(페이지 경로 또는 컴포넌트): 새로운 기능 추가 또는 기능 업데이트
+
+- fix(페이지 경로 또는 컴포넌트): 버그 또는 에러 수정
+
+- style(페이지 경로 또는 컴포넌트): 코드 포맷팅, 코드 오타, 함수명 수정 등 스타일 수정
+
+- refactor(페이지 경로 또는 컴포넌트): 코드 리팩토링(똑같은 기능인데 코드만 개선)
+
+- file(페이지 경로 또는 컴포넌트): 파일 이동 또는 제거, 파일명 변경
+
+- design(페이지 경로 또는 컴포넌트): 디자인, 문장 수정
+
+- comment(페이지 경로 또는 컴포넌트): 주석 수정 및 삭제
+
+- chore: 빌드 수정, 패키지 추가, 환경변수 설정
+
+- docs: 문서 수정, 블로그 포스트 추가
+
+- hotfix: 핫픽스 수정
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
