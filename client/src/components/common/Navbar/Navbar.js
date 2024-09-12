@@ -127,6 +127,7 @@ export default function Navbar() {
           {/* profile */}
           <Box sx={{ flexGrow: 0 }}>
             <div>
+              
               <svg
                 onClick={handleMenu}
                 xmlns="http://www.w3.org/2000/svg"

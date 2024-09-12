@@ -148,10 +148,11 @@ export default function RegisterPage() {
                     value={generation}
                     label="유레카 기수"
                     onChange={onHandleChange}
+                    required
                   >
-                    <MenuItem value={10}>1기</MenuItem>
-                    <MenuItem value={20}>2기</MenuItem>
-                    <MenuItem value={30}>3기</MenuItem>
+                    <MenuItem value={1}>1기</MenuItem>
+                    <MenuItem value={2}>2기</MenuItem>
+                    <MenuItem value={3}>3기</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -164,11 +165,12 @@ export default function RegisterPage() {
                     value={group}
                     label="클래스"
                     onChange={onHandleChange}
+                    required
                   >
-                    <MenuItem value={10}>프론트 대면</MenuItem>
-                    <MenuItem value={20}>프론트 비대면</MenuItem>
-                    <MenuItem value={30}>백엔드 대면</MenuItem>
-                    <MenuItem value={30}>백엔드 비대면</MenuItem>
+                    <MenuItem value={1}>프론트 대면</MenuItem>
+                    <MenuItem value={2}>프론트 비대면</MenuItem>
+                    <MenuItem value={3}>백엔드 대면</MenuItem>
+                    <MenuItem value={4}>백엔드 비대면</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>

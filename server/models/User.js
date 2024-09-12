@@ -7,21 +7,26 @@ const userSchema = mongoose.Schema({
   name: {
     type: String,
     maxlength: 50,
+    required: [true, "User must type name"],
   },
   email: {
     type: String,
-    trim: true, // 스페이스를 없애주는 역할
-    unique: 1, // 중복을 허용하지 않는다.
+    trim: true, // 빈칸 없애기
+    unique: 1, // 중복을 허용하지 않는다
+    required: [true, "Email must type email"],
   },
   password: {
     type: String,
     minlength: 8,
+    required: true,
   },
   generation: {
     type: Number,
+    required: true,
   },
   group: {
     type: String,
+    required: true,
   },
 
   role: {
